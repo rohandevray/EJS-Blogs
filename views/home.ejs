@@ -1,0 +1,24 @@
+<%- include("partials/header"); -%>
+
+<h1>Home</h1>
+<p><%= homeStartingContent %></p>
+
+ <% posts.forEach(function(post){ %>
+     <h1><%=post.title%></h1> 
+    <% let link =post.title; %>
+    <% let size = post.content.length; %>
+    <% if(size>=120){ %>
+        <% let newContent= post.content.slice(0,120);%>
+        <p><%=newContent%> ...<a href="/posts/<%= link %>">Read More</a></p> 
+       
+        <% }else{ %>
+        <p><%=post.content%></p> 
+        <%  }%>
+    
+    
+ <% }) %>
+ 
+<%- include("partials/footer"); -%>
+
+<!-- as the ejs already know the location of ejs file to look into views thats why location is after that 
+that is partals/header -->
